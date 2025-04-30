@@ -41,7 +41,6 @@
       position: relative;
       width: 100%;
       max-width: 400px;
-      height: auto;
       border-radius: 16px;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
       overflow: hidden;
@@ -49,17 +48,34 @@
 
     .slideshow img {
       width: 100%;
-      height: auto;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
+      display: none;
       transition: opacity 1s ease-in-out;
     }
 
     .slideshow img.active {
-      opacity: 1;
-      position: relative;
+      display: block;
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .controls button {
+      background-color: #f2c397;
+      border: none;
+      padding: 8px 16px;
+      margin: 0 5px;
+      border-radius: 12px;
+      font-family: 'Patrick Hand', cursive;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #e0a973;
     }
 
     .container {
@@ -143,9 +159,15 @@
   <img class="decoration merlion" src="https://tse2.mm.bing.net/th?id=OIP.v_hhDq5vaEvdgtl9e7S-ggHaHa&pid=Api" alt="鱼尾狮图标">
 
   <div class="main">
-    <div class="slideshow">
-      <img src="nienie.png" alt="捏捏在新加坡的照片" class="active">
-      <img src="family.png" alt="我们三个人">
+    <div>
+      <div class="slideshow">
+        <img src="nienie.png" alt="捏捏在新加坡的照片" class="active">
+        <img src="family.png" alt="我们三个人">
+      </div>
+      <div class="controls">
+        <button onclick="prevSlide()">上一张</button>
+        <button onclick="nextSlide()">下一张</button>
+      </div>
     </div>
 
     <div class="container">
@@ -173,11 +195,23 @@
   <script>
     const slides = document.querySelectorAll('.slideshow img');
     let current = 0;
-    setInterval(() => {
-      slides[current].classList.remove('active');
+    let interval = setInterval(() => nextSlide(), 4000);
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextSlide() {
       current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 4000);
+      showSlide(current);
+    }
+
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
   </script>
 </body>
 </html>
