@@ -37,23 +37,29 @@
       flex-wrap: wrap;
     }
 
-    .hero-image, .family-image {
+    .slideshow {
+      position: relative;
       width: 100%;
-      max-width: 360px;
+      max-width: 400px;
       height: auto;
       border-radius: 16px;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-      object-fit: cover;
-      flex-shrink: 0;
+      overflow: hidden;
     }
 
-    .image-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-shrink: 0;
+    .slideshow img {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow img.active {
+      opacity: 1;
+      position: relative;
     }
 
     .container {
@@ -122,7 +128,7 @@
         flex-direction: column;
         align-items: center;
       }
-      .hero-image, .family-image {
+      .slideshow {
         max-width: 90%;
       }
     }
@@ -137,14 +143,14 @@
   <img class="decoration merlion" src="https://tse2.mm.bing.net/th?id=OIP.v_hhDq5vaEvdgtl9e7S-ggHaHa&pid=Api" alt="鱼尾狮图标">
 
   <div class="main">
-    <div class="image-wrapper">
-      <img class="hero-image" src="nienie.png" alt="捏捏在新加坡的照片">
-      <img class="family-image" src="family.png" alt="我们在新加坡">
+    <div class="slideshow">
+      <img src="nienie.png" alt="捏捏在新加坡的照片" class="active">
+      <img src="family.png" alt="我们三个人">
     </div>
 
     <div class="container">
       <div class="letter">
-        <p>捏捏小孩：</p>
+        <p>捏捏消耗：</p>
         <p>爸爸这次出远门打猎去了，<br>
            带回来一些小东西——咖喱、凤梨酥、鱼皮、辣螃蟹，<br>
            还有一只狮头熊玩偶。<br>
@@ -157,11 +163,21 @@
            就是一路上，总会想到你。</p>
 
         <p>希望你一切都好。<br>
-           很想你。</p>
+           爸爸，很想你。</p>
 
         <p class="signature">—— 爸爸</p>
       </div>
     </div>
   </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slideshow img');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
+  </script>
 </body>
 </html>
