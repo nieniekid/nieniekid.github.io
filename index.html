@@ -29,7 +29,7 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
-      align-items: flex-start;
+      align-items: stretch;
       max-width: 1100px;
       padding: 40px;
       gap: 40px;
@@ -44,10 +44,20 @@
       border-radius: 16px;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
       flex-shrink: 0;
+      object-fit: cover;
+    }
+
+    .image-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: stretch;
     }
 
     .container {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       background: #fffef8;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       border-radius: 16px;
@@ -124,7 +134,9 @@
   <img class="decoration merlion" src="https://tse2.mm.bing.net/th?id=OIP.v_hhDq5vaEvdgtl9e7S-ggHaHa&pid=Api" alt="鱼尾狮图标">
 
   <div class="main">
-    <img class="hero-image" src="nienie.png" alt="捏捏在新加坡的照片">
+    <div class="image-wrapper">
+      <img class="hero-image" src="nienie.png" alt="捏捏在新加坡的照片">
+    </div>
 
     <div class="container">
       <div class="letter">
