@@ -30,27 +30,30 @@
       flex-direction: row;
       justify-content: center;
       align-items: stretch;
-      max-width: 1100px;
+      max-width: 1400px;
       padding: 40px;
       gap: 40px;
       animation: fadeIn 2s ease-in;
       flex-wrap: wrap;
     }
 
-    .hero-image {
+    .hero-image, .family-image {
       width: 100%;
-      max-width: 400px;
+      max-width: 360px;
       height: auto;
       border-radius: 16px;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-      flex-shrink: 0;
       object-fit: cover;
+      flex-shrink: 0;
     }
 
     .image-wrapper {
-      flex: 1;
       display: flex;
-      align-items: stretch;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-shrink: 0;
     }
 
     .container {
@@ -119,7 +122,7 @@
         flex-direction: column;
         align-items: center;
       }
-      .hero-image {
+      .hero-image, .family-image {
         max-width: 90%;
       }
     }
@@ -136,11 +139,12 @@
   <div class="main">
     <div class="image-wrapper">
       <img class="hero-image" src="nienie.png" alt="捏捏在新加坡的照片">
+      <img class="family-image" src="family.png" alt="我们在新加坡">
     </div>
 
     <div class="container">
       <div class="letter">
-        <p>捏捏消耗：</p>
+        <p>捏捏小孩：</p>
         <p>爸爸这次出远门打猎去了，<br>
            带回来一些小东西——咖喱、凤梨酥、鱼皮、辣螃蟹，<br>
            还有一只狮头熊玩偶。<br>
@@ -153,7 +157,7 @@
            就是一路上，总会想到你。</p>
 
         <p>希望你一切都好。<br>
-           爸爸，很想你。</p>
+           很想你。</p>
 
         <p class="signature">—— 爸爸</p>
       </div>
