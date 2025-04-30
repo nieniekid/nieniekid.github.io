@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>给捏捏的小信</title>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(#fefaf3, #fbeedc);
+      font-family: 'Patrick Hand', cursive;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      margin-top: 40px;
+      font-size: 2rem;
+      color: #a56c43;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .hero-image {
+      max-width: 90%;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      margin: 30px 0;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .container {
+      position: relative;
+      width: 90%;
+      max-width: 600px;
+      padding: 40px;
+      background: #fffef8;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+      margin: 40px 0;
+      animation: fadeIn 2s ease-in;
+      z-index: 10;
+    }
+
+    .letter p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #444;
+      opacity: 0;
+      animation: fadeText 1s ease forwards;
+    }
+
+    .letter p:nth-child(1) { animation-delay: 1s; }
+    .letter p:nth-child(2) { animation-delay: 2.5s; }
+    .letter p:nth-child(3) { animation-delay: 4.5s; }
+    .letter p:nth-child(4) { animation-delay: 6s; }
+
+    .signature {
+      text-align: right;
+      margin-top: 30px;
+      font-size: 1.2rem;
+    }
+
+    .decoration {
+      position: absolute;
+      width: 50px;
+      animation: float 8s ease-in-out infinite alternate;
+      opacity: 0.3;
+      z-index: 1;
+    }
+
+    .tea { top: 5%; left: 5%; }
+    .fish { top: 5%; right: 5%; }
+    .curry { bottom: 5%; left: 10%; }
+    .merlion { bottom: 5%; right: 10%; }
+
+    @keyframes fadeText {
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-15px); }
+    }
+  </style>
+</head>
+<body>
+  <header>捏捏的小信</header>
+
+  <img class="hero-image" src="/mnt/data/A_digital_illustration_in_a_semi-realistic,_warm,_.png" alt="捏捏在新加坡的照片">
+
+  <img class="decoration tea" src="https://tse2.mm.bing.net/th?id=OIP.n1B_CtySk1kCFmKY6ztvAwHaGu&pid=Api" alt="茶杯图标">
+  <img class="decoration fish" src="https://tse3.mm.bing.net/th?id=OIP.gOpqV-yVsT_uhxwfkFZKfAHaHa&pid=Api" alt="鱼图标">
+  <img class="decoration curry" src="https://tse4.mm.bing.net/th?id=OIP._p3eqdnBzaZ_VfHuvKyWvwHaHa&pid=Api" alt="咖喱图标">
+  <img class="decoration merlion" src="https://tse2.mm.bing.net/th?id=OIP.v_hhDq5vaEvdgtl9e7S-ggHaHa&pid=Api" alt="鱼尾狮图标">
+
+  <div class="container">
+    <div class="letter">
+      <p>捏捏：</p>
+      <p>爸爸这次出远门打猎去了，<br>
+         带回来一些小东西——咖喱、凤梨酥、鱼皮，<br>
+         还有一只狮头熊玩偶。<br>
+         也带了两种茶，一种奶香的，一种茉莉的，<br>
+         都是你以前闻着会笑的味道。</p>
+
+      <p>看到这些的时候就忍不住想：<br>
+         如果你在，应该会喜欢吧。<br>
+         其实没什么特别的理由，<br>
+         就是一路上，总会想到你。</p>
+
+      <p>希望你一切都好。<br>
+         爸爸，很想你。</p>
+
+      <p class="signature">—— 捏捏的爸爸</p>
+    </div>
+  </div>
+</body>
+</html>
